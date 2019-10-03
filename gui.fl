@@ -1,0 +1,108 @@
+# data file for the Fltk User Interface Designer (fluid)
+version 1.0305
+header_name {.h}
+code_name {.cpp}
+class Gui {open
+} {
+  Function {Gui()} {open
+  } {
+    Fl_Window MainWindow {
+      label {Scientific Visualization Projects} open
+      xywh {371 140 985 555} type Double
+      code0 {\#include "Application.h"}
+      code1 {\#include <stdlib.h>} visible
+    } {
+      Fl_Menu_Bar menuBar {
+        label menuBar open
+        xywh {0 0 985 25}
+      } {
+        Submenu fileMenu {
+          label File open
+          xywh {0 0 100 20}
+        } {
+          MenuItem readFile {
+            label Read
+            callback {app->ReadFile();}
+            xywh {0 0 100 20}
+          }
+          MenuItem writeFile {
+            label Write
+            callback {app->WriteFile();}
+            xywh {0 0 100 20}
+          }
+        }
+        Submenu imageProcess {
+          label {Image Processing} open
+          xywh {0 0 62 20}
+        } {
+          MenuItem updateGUI {
+            label Update
+            callback {app->GUI_Update();}
+            xywh {0 0 30 20}
+          }
+          MenuItem greyEffect {
+            label {grey effect}
+            callback {app->GUI_GreyEffect();}
+            xywh {0 0 30 20}
+          }
+          MenuItem averageSmooth {
+            label {Average Smooth}
+            callback {app->GUI_AverageSmooth();}
+            xywh {0 0 30 20}
+          }
+          MenuItem medianSmooth {
+            label {Median Smooth}
+            callback {app->GUI_MedianSmooth();}
+            xywh {0 0 30 20}
+          }
+          MenuItem gaussianSmooth {
+            label {Gaussian Smooth}
+            callback {app->GUI_GaussianSmooth();}
+            xywh {0 0 30 20}
+          }
+          MenuItem edgeDetect {
+            label {Edge Detect}
+            callback {app->GUI_EdgeDetect();}
+            xywh {0 0 30 20}
+          }
+          MenuItem undoButton {
+            label Undo
+            callback {app->GUI_UndoButton();}
+            xywh {0 0 30 20}
+          }
+        }
+        MenuItem restoreButton {
+          label Restore
+          callback {app->GUI_RestoreButton();} selected
+          xywh {0 0 30 20} labelcolor 4
+        }
+        MenuItem exitButton {
+          label Exit
+          callback {exit(1);}
+          xywh {10 10 100 20} labelcolor 1
+        }
+      }
+      Fl_Box EditorWindow {
+        label EditorWindow
+        xywh {15 25 385 350}
+        code0 {\#include "EditorWindow.h"}
+        class CEditorWindow
+      }
+      Fl_Box DisplayWindow {
+        label DisplayWindow
+        xywh {415 25 570 530}
+        code0 {\#include "DisplayWindow.h"}
+        class CDisplayWindow
+      }
+    }
+    code {app=new Application();} {}
+  }
+  Function {show()} {open
+  } {
+    code {MainWindow->show();
+EditorWindow->show();
+DisplayWindow->show();} {}
+  }
+  decl {Application *app;} {public local
+  }
+}
