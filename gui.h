@@ -9,6 +9,7 @@
 #include <FL/Fl_Menu_Bar.H>
 #include "EditorWindow.h"
 #include "DisplayWindow.h"
+#include <FL/Fl_Value_Slider.H>
 
 class Gui {
 public:
@@ -63,6 +64,22 @@ private:
   inline void cb_undoButton_i(Fl_Menu_*, void*);
   static void cb_undoButton(Fl_Menu_*, void*);
 public:
+  static Fl_Menu_Item *volumeRendering;
+  static Fl_Menu_Item *readVolumeFile;
+private:
+  inline void cb_readVolumeFile_i(Fl_Menu_*, void*);
+  static void cb_readVolumeFile(Fl_Menu_*, void*);
+public:
+  static Fl_Menu_Item *xRay;
+private:
+  inline void cb_xRay_i(Fl_Menu_*, void*);
+  static void cb_xRay(Fl_Menu_*, void*);
+public:
+  static Fl_Menu_Item *MIP;
+private:
+  inline void cb_MIP_i(Fl_Menu_*, void*);
+  static void cb_MIP(Fl_Menu_*, void*);
+public:
   static Fl_Menu_Item *restoreButton;
 private:
   inline void cb_restoreButton_i(Fl_Menu_*, void*);
@@ -75,6 +92,31 @@ private:
 public:
   CEditorWindow *EditorWindow;
   CDisplayWindow *DisplayWindow;
+  Fl_Value_Slider *sliderX;
+private:
+  inline void cb_sliderX_i(Fl_Value_Slider*, void*);
+  static void cb_sliderX(Fl_Value_Slider*, void*);
+public:
+  Fl_Value_Slider *sliderY;
+private:
+  inline void cb_sliderY_i(Fl_Value_Slider*, void*);
+  static void cb_sliderY(Fl_Value_Slider*, void*);
+public:
+  Fl_Value_Slider *sliderZ;
+private:
+  inline void cb_sliderZ_i(Fl_Value_Slider*, void*);
+  static void cb_sliderZ(Fl_Value_Slider*, void*);
+public:
+  Fl_Value_Slider *sliderWidth;
+private:
+  inline void cb_sliderWidth_i(Fl_Value_Slider*, void*);
+  static void cb_sliderWidth(Fl_Value_Slider*, void*);
+public:
+  Fl_Value_Slider *sliderHeight;
+private:
+  inline void cb_sliderHeight_i(Fl_Value_Slider*, void*);
+  static void cb_sliderHeight(Fl_Value_Slider*, void*);
+public:
   void show();
   Application *app; 
 };

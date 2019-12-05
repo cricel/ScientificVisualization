@@ -41,6 +41,17 @@ public:
   void GUI_UndoButton();
   void GUI_RestoreButton();
   void Caluate_Histogram();
+
+  void GUI_ReadVolumeFile();
+  void GUI_xRay();
+  void GUI_MIP();
+
+  /*void GUI_SliderX();
+  void GUI_SliderY();
+  void GUI_SliderZ();
+  void GUI_SliderWidth();
+  void GUI_SliderHeight();*/
+  void GUI_VolumeDraw();
 };
 
 #endif

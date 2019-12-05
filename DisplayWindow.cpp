@@ -49,4 +49,3 @@ void CDisplayWindow::draw() {
    // translate to gray
 }
 
-

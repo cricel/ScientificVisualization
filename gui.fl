@@ -71,9 +71,29 @@ class Gui {open
             xywh {0 0 30 20}
           }
         }
+        Submenu volumeRendering {
+          label {Volume Rendering} open
+          xywh {0 0 62 20}
+        } {
+          MenuItem readVolumeFile {
+            label {Read Volume File}
+            callback {app->GUI_ReadVolumeFile();}
+            xywh {0 0 30 20}
+          }
+          MenuItem xRay {
+            label {X-Ray}
+            callback {app->GUI_xRay();}
+            xywh {0 0 30 20}
+          }
+          MenuItem MIP {
+            label MIP
+            callback {app->GUI_MIP();}
+            xywh {0 0 30 20}
+          }
+        }
         MenuItem restoreButton {
           label Restore
-          callback {app->GUI_RestoreButton();} selected
+          callback {app->GUI_RestoreButton();}
           xywh {0 0 30 20} labelcolor 4
         }
         MenuItem exitButton {
@@ -93,6 +113,31 @@ class Gui {open
         xywh {415 25 570 530}
         code0 {\#include "DisplayWindow.h"}
         class CDisplayWindow
+      }
+      Fl_Value_Slider sliderX {
+        label x
+        callback {app->GUI_VolumeDraw();}
+        xywh {15 390 295 25} type Horizontal minimum -180 maximum 180 step 1
+      }
+      Fl_Value_Slider sliderY {
+        label y
+        callback {app->GUI_VolumeDraw();}
+        xywh {15 445 295 25} type Horizontal minimum -180 maximum 180 step 1
+      }
+      Fl_Value_Slider sliderZ {
+        label z
+        callback {app->GUI_VolumeDraw();}
+        xywh {15 500 295 25} type Horizontal minimum -180 maximum 180 step 1
+      }
+      Fl_Value_Slider sliderWidth {
+        label width
+        callback {app->GUI_VolumeDraw();}
+        xywh {330 380 25 145} minimum 256 maximum 512 step 1 value 256
+      }
+      Fl_Value_Slider sliderHeight {
+        label height
+        callback {app->GUI_VolumeDraw();} selected
+        xywh {375 380 25 145} minimum 256 maximum 512 step 1 value 256
       }
     }
     code {app=new Application();} {}
